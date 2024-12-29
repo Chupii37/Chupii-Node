@@ -11,14 +11,14 @@ echo -e "\e[1;31m
 "
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
-# Menghitung ruang untuk memusatkan teks (50 kira-kira setengah dari panjang baris logo yang terpanjang)
+# Menghitung ruang untuk memusatkan teks (70 karakter lebar)
 text1="✨ Welcome to Airdrop Red Left Hand! ✨"
 text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
 
 # Function to center text
 center_text() {
   local text="$1"
-  local width=50
+  local width=70  # Adjusted for a wider terminal width
   local len=${#text}
   local spaces=$(( (width - len) / 2 ))
   printf '%*s' "$spaces" ""
