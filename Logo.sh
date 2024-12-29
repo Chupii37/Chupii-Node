@@ -15,11 +15,11 @@ echo -e "\e[1;31m
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
 echo -e "\n"
-echo -e "\e[1;37m      ✨ Welcome to Airdrop Red Left Hand! ✨      "
-echo -e "\n"
-
-# Menambahkan ajakan untuk bergabung
-echo -e "\e[1;32m             👨‍💻 Join the movement and level up with us on Telegram! 🚀"
+# Calculate spaces to center the text (50 is roughly half of the longest line in the logo)
+spaces=$(printf '%*s' $(( (50 - ${#line}) / 2 )))
+echo -e "\e[1;37m$spaces✨ Welcome to Airdrop Red Left Hand! ✨$spaces"
+spaces=$(printf '%*s' $(( (50 - ${#line}) / 2 )))
+echo -e "\e[1;32m$spaces👨‍💻 Join the movement and level up with us on Telegram! 🚀$spaces"
 
 # Tautan Telegram Channel dan Group dengan warna cyan
 echo -e "\e[1;36m🌍 Channel Telegram: https://t.me/airdropredhand"
