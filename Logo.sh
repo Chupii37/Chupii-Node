@@ -23,8 +23,8 @@ echo -e "\e[1;32m$spaces👨‍💻 Join the movement and level up with us on Te
 echo -e "\n"  # Add space after the call-to-action text
 
 # Tautan Telegram Channel dan Group dengan warna cyan
-echo -e "\e[1;36m🌍 Channel Telegram: https://t.me/airdropredhand"
-echo -e "\e[1;36m💬 Grup Telegram: https://t.me/airdropredhanddiscussion"
+echo -e "\e[1;36m🌍 Channel Telegram: https://t.me/airdropredlefthand"
+echo -e "\e[1;36m💬 Grup Telegram: https://t.me/airdropredlefthanddisscusion"
 
 # Mengembalikan warna font ke normal
 echo -e "\e[0m"
