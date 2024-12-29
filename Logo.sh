@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Menentukan lebar terminal secara manual atau otomatis
+terminal_width=$(stty size | cut -d' ' -f2)
+
+# Fungsi untuk memusatkan teks
+center_text() {
+  local text="$1"
+  local len=${#text}
+  local spaces=$(( (terminal_width - len) / 2 ))
+  printf '%*s' "$spaces" ""  # Menambahkan spasi untuk memusatkan teks
+  echo -e "$text"
+}
+
 # Menampilkan ASCII art dengan warna merah
 echo -e "\e[1;31m
 
@@ -13,18 +25,6 @@ echo -e "\e[1;31m
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
 text1="✨ Welcome to Airdrop Red Left Hand! ✨"
 text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
-
-# Mendapatkan lebar terminal secara otomatis
-terminal_width=$(tput cols)
-
-# Fungsi untuk memusatkan teks
-center_text() {
-  local text="$1"
-  local len=${#text}
-  local spaces=$(( (terminal_width - len) / 2 ))
-  printf '%*s' "$spaces" ""  # Menambahkan spasi untuk memusatkan teks
-  echo -e "$text"
-}
 
 # Menampilkan teks ajakan dengan warna putih
 echo -e "\e[1;37m"  # Mengatur warna teks menjadi putih
