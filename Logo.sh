@@ -12,15 +12,30 @@ center_text() {
   echo -e "$text"
 }
 
-# Menampilkan ASCII art dengan warna merah
-echo -e "\e[1;31m
+# Fungsi untuk memotong ASCII art yang lebih lebar dari terminal
+trim_ascii_art() {
+  local line
+  while IFS= read -r line; do
+    # Potong baris jika lebih panjang dari lebar terminal
+    if [ ${#line} -gt $terminal_width ]; then
+      line="${line:0:$terminal_width}"
+    fi
+    echo "$line"
+  done <<< "$1"
+}
 
+# ASCII art
+ascii_art="
 ▄▀█ █ █▀█ █▀▄ █▀█ █▀█ █▀█   █▀█ █▀▀ █▀▄
 █▀█ █ █▀▄ █▄▀ █▀▄ █▄█ █▀▀   █▀▄ ██▄ █▄▀
 
 █░░ █▀▀ █▀▀ ▀█▀   █░█ ▄▀█ █▄░█ █▀▄
 █▄▄ ██▄ █▀░ ░█░   █▀█ █▀█ █░▀█ █▄▀
 "
+
+# Menampilkan ASCII art dengan pemotongan jika diperlukan
+echo -e "\e[1;31m"
+trim_ascii_art "$ascii_art"
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
 text1="✨ Welcome to Airdrop Red Left Hand! ✨"
