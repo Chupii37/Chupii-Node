@@ -14,9 +14,7 @@ echo -e "\e[1;31m
 "
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
-echo -e "\n\n"  # Add extra space before the text
-
-# Calculate spaces to center the text (50 is roughly half of the longest line in the logo)
+# Menghitung ruang untuk memusatkan teks (50 kira-kira setengah dari panjang baris logo yang terpanjang)
 spaces=$(printf '%*s' $(( (50 - ${#line}) / 2 )))
 echo -e "\e[1;37m$spaces✨ Welcome to Airdrop Red Left Hand! ✨$spaces"
 spaces=$(printf '%*s' $(( (50 - ${#line}) / 2 )))
@@ -28,5 +26,8 @@ echo -e "\n"  # Add space after the call-to-action text
 echo -e "\e[1;36m🌍 Channel Telegram: https://t.me/airdropredhand"
 echo -e "\e[1;36m💬 Grup Telegram: https://t.me/airdropredhanddiscussion"
 
+# Mengembalikan warna font ke normal
+echo -e "\e[0m"
+
 # Garis kosong agar lebih rapi
-echo -e "\n\n"
+echo -e "\n"
