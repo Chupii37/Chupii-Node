@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Menentukan lebar terminal secara manual atau otomatis
-terminal_width=$(stty size | cut -d' ' -f2)
+# Mendapatkan lebar terminal dengan tput dan penanganan error
+terminal_width=$(tput cols 2>/dev/null || echo 80)
 
 # Fungsi untuk memusatkan teks
 center_text() {
