@@ -16,7 +16,7 @@ center_text() {
 trim_ascii_art() {
   local line
   while IFS= read -r line; do
-    # Potong baris jika lebih panjang dari lebar terminal
+    # Jika panjang baris lebih dari lebar terminal, potong
     if [ ${#line} -gt $terminal_width ]; then
       line="${line:0:$terminal_width}"
     fi
