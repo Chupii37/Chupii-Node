@@ -12,16 +12,14 @@ center_text() {
   echo -e "$text"
 }
 
-# Fungsi untuk memotong ASCII art yang lebih lebar dari terminal
-trim_ascii_art() {
+# Fungsi untuk memusatkan ASCII art per baris
+center_ascii_art() {
+  local art="$1"
   local line
   while IFS= read -r line; do
-    # Jika panjang baris lebih dari lebar terminal, potong
-    if [ ${#line} -gt $terminal_width ]; then
-      line="${line:0:$terminal_width}"
-    fi
-    echo "$line"
-  done <<< "$1"
+    # Pusatkan setiap baris dari ASCII art
+    center_text "$line"
+  done <<< "$art"
 }
 
 # ASCII art baru yang Anda berikan
@@ -41,9 +39,9 @@ ascii_art="
 ╚╝╚╩══╩╩═╩═╝
 "
 
-# Menampilkan ASCII art dengan pemotongan jika diperlukan
-echo -e "\e[1;31m"
-trim_ascii_art "$ascii_art"
+# Menampilkan ASCII art yang dipusatkan
+echo -e "\e[1;31m"  # Mengatur warna merah untuk ASCII art
+center_ascii_art "$ascii_art"
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
 text1="✨ Welcome to Airdrop Red Left Hand! ✨"
