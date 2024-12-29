@@ -3,13 +3,11 @@
 # Menampilkan ASCII art dengan warna merah
 echo -e "\e[1;31m
 
-
 ▄▀█ █ █▀█ █▀▄ █▀█ █▀█ █▀█   █▀█ █▀▀ █▀▄
 █▀█ █ █▀▄ █▄▀ █▀▄ █▄█ █▀▀   █▀▄ ██▄ █▄▀
 
 █░░ █▀▀ █▀▀ ▀█▀   █░█ ▄▀█ █▄░█ █▀▄
 █▄▄ ██▄ █▀░ ░█░   █▀█ █▀█ █░▀█ █▄▀
-
 "
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
