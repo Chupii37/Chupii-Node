@@ -12,10 +12,22 @@ echo -e "\e[1;31m
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
 # Menghitung ruang untuk memusatkan teks (50 kira-kira setengah dari panjang baris logo yang terpanjang)
-spaces=$(printf '%*s' $(( (50 - ${#line}) / 2 )))
-echo -e "\e[1;37m$spaces✨ Welcome to Airdrop Red Left Hand! ✨$spaces"
-spaces=$(printf '%*s' $(( (50 - ${#line}) / 2 )))
-echo -e "\e[1;32m$spaces👨‍💻 Join the movement and level up with us on Telegram! 🚀$spaces"
+text1="✨ Welcome to Airdrop Red Left Hand! ✨"
+text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
+
+# Function to center text
+center_text() {
+  local text="$1"
+  local width=50
+  local len=${#text}
+  local spaces=$(( (width - len) / 2 ))
+  printf '%*s' "$spaces" ""
+  echo -e "$text"
+}
+
+# Pusatkan dan tampilkan teks ajakan
+center_text "$text1"
+center_text "$text2"
 
 echo -e "\n"  # Add space after the call-to-action text
 
