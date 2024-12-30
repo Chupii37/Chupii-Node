@@ -36,7 +36,7 @@ loading &
 loader_pid=$!  # Ambil PID dari proses loader
 
 # Simulasi tugas lain (misalnya, pemrosesan atau menunggu beberapa detik)
-sleep 5  # Simulasi pemrosesan selama 5 detik
+sleep 4  # Simulasi pemrosesan selama 4 detik 
 
 # Hentikan proses loader setelah tugas selesai
 kill $loader_pid
@@ -80,9 +80,8 @@ echo -e "\e[1;37m"  # Mengatur warna teks menjadi putih
 ascii_art_lines=15  # Jumlah baris ASCII art
 half_terminal_height=$(( $(tput lines) / 2 ))  # Menghitung setengah tinggi terminal
 
-# Menampilkan teks di tengah-tengah antara ASCII art
 # Mengurangi jarak dengan menyesuaikan perhitungan offset
-center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 3))  # Kurangi 3 untuk mendekatkan
+center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 5))  # Mengurangi 5 untuk mendekatkan lebih dekat
 
 # Menambahkan baris kosong hingga mencapai posisi tengah ASCII art
 for ((i = 0; i < center_offset; i++)); do
@@ -116,6 +115,5 @@ echo -e "\e[0m"
 # Garis kosong agar lebih rapi
 echo -e "\n"
 
-# Menambahkan delay 3 detik sebelum melanjutkan proses selanjutnya
-sleep 3  # Tunggu selama 3 detik
-
+# Menambahkan delay 2 detik sebelum melanjutkan proses selanjutnya 
+sleep 2  # Tunggu selama 2 detik
