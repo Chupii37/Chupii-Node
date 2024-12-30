@@ -81,7 +81,7 @@ ascii_art_lines=15  # Jumlah baris ASCII art
 half_terminal_height=$(( $(tput lines) / 2 ))  # Menghitung setengah tinggi terminal
 
 # Mengurangi jarak dengan menyesuaikan perhitungan offset
-center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 5))  # Mengurangi 5 untuk mendekatkan lebih dekat
+center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 7))  # Mengurangi 7 untuk mendekatkan lebih dekat
 
 # Menambahkan baris kosong hingga mencapai posisi tengah ASCII art
 for ((i = 0; i < center_offset; i++)); do
