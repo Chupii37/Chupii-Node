@@ -1,46 +1,50 @@
 #!/bin/bash
 
-# Mendapatkan lebar terminal dengan tput dan penanganan error
-terminal_width=$(tput cols 2>/dev/null || echo 80)
+# Fungsi untuk mendapatkan lebar terminal
+get_terminal_width() {
+  # Mendapatkan lebar terminal
+  terminal_width=$(tput cols)
+}
 
 # Fungsi untuk memusatkan teks
 center_text() {
   local text="$1"
   local len=${#text}
-  local spaces=$(( (terminal_width - len) / 2 ))
+  local spaces=$(( (terminal_width - len) / 2 ))  # Menghitung spasi untuk memusatkan teks
   printf '%*s' "$spaces" ""  # Menambahkan spasi untuk memusatkan teks
   echo -e "$text"
 }
 
-# Fungsi untuk memusatkan ASCII art per baris
-center_ascii_art() {
-  local art="$1"
-  local line
-  while IFS= read -r line; do
-    # Pusatkan setiap baris dari ASCII art
-    center_text "$line"
-  done <<< "$art"
-}
+# Memperoleh lebar terminal sebelum menampilkan apa pun
+get_terminal_width
 
-# ASCII art baru yang Anda berikan
-ascii_art="
-╔══╦╗──╔╗────╔═╗──╔╗
-║╔╗╠╬╦╦╝╠═╦═╗║╬╠═╦╝║
-║╠╣║║╔╣╬║╬║╬║║╗╣╩╣╬║
-╚╝╚╩╩╝╚═╩═╣╔╝╚╩╩═╩═╝
-──────────╚╝
-╔╗──╔═╦╗─╔╗╔╗──────╔╗
-║║╔═╣═╣╚╗║╚╝╠═╗╔═╦╦╝║
-║╚╣╩╣╔╣╔╣║╔╗║╬╚╣║║║╬║
-╚═╩═╩╝╚═╝╚╝╚╩══╩╩═╩═╝
-"
-
-# Menampilkan ASCII art yang dipusatkan
+# Menampilkan ASCII art
 echo -e "\e[1;31m"  # Mengatur warna merah untuk ASCII art
-center_ascii_art "$ascii_art"
+cat << "EOF"
+        /$$$$$$  /$$$$$$ /$$$$$$$  /$$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$$   
+       /$$__  $$|_  $$_/| $$__  $$| $$__  $$| $$__  $$ /$$__  $$| $$__  $$  
+      | $$  \ $$  | $$  | $$  \ $$| $$  \ $$| $$  \ $$| $$  \ $$| $$  \ $$  
+      | $$$$$$$$  | $$  | $$$$$$$/| $$  | $$| $$$$$$$/| $$  | $$| $$$$$$$/  
+      | $$__  $$  | $$  | $$__  $$| $$  | $$| $$__  $$| $$  | $$| $$____/   
+      | $$  | $$  | $$  | $$  \ $$| $$  | $$| $$  \ $$| $$  | $$| $$        
+      | $$  | $$ /$$$$$$| $$  | $$| $$$$$$$/| $$  | $$|  $$$$$$/| $$        
+      |__/  |__/|______/|__/  |__/|_______/ |__/  |__/ \______/ |__/        
+                                                                            
+                                                                            
+                                                                            
+ /$$$$$$$  /$$$$$$$$ /$$$$$$$        /$$   /$$  /$$$$$$  /$$   /$$ /$$$$$$$ 
+| $$__  $$| $$_____/| $$__  $$      | $$  | $$ /$$__  $$| $$$ | $$| $$__  $$
+| $$  \ $$| $$      | $$  \ $$      | $$  | $$| $$  \ $$| $$$$| $$| $$  \ $$
+| $$$$$$$/| $$$$$   | $$  | $$      | $$$$$$$$| $$$$$$$$| $$ $$ $$| $$  | $$
+| $$__  $$| $$__/   | $$  | $$      | $$__  $$| $$__  $$| $$  $$$$| $$  | $$
+| $$  \ $$| $$      | $$  | $$      | $$  | $$| $$  | $$| $$\  $$$| $$  | $$
+| $$  | $$| $$$$$$$$| $$$$$$$/      | $$  | $$| $$  | $$| $$ \  $$| $$$$$$$/
+|__/  |__/|________/|_______/       |__/  |__/|__/  |__/|__/  \__/|_______/ 
+                                                                          
+EOF
 
 # Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
-text1="✨ Welcome to Airdrop Red Left Hand! ✨"
+text1="✨ Welcome to Airdrop Red Hand! ✨"
 text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
 
 # Menampilkan teks ajakan dengan warna putih
