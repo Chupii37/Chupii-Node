@@ -77,7 +77,7 @@ ascii_art_lines=$(echo -e "$ASCII_ART" | wc -l)
 half_ascii_art_height=$((ascii_art_lines / 2))
 
 # Menghitung posisi tengah untuk teks ajakan dalam ASCII art
-# Hitung posisi tengah dan pastikan teks ajakan berada di sana
+# Teks ajakan akan ditampilkan setelah bagian tengah ASCII art
 text1="✨ Welcome to Airdrop Red Hand! ✨"
 text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
 
@@ -97,14 +97,17 @@ center_text "$text2"
 # Mengembalikan warna font ke normal
 echo -e "\e[0m"
 
-# Tautan Telegram Channel dan Group dengan warna cyan
+# Garis kosong agar lebih rapi
+echo -e "\n"
+
+# Menambahkan tautan Telegram Channel dan Group dengan warna cyan
 echo -e "\e[1;36m🌍 Channel Telegram: https://t.me/airdropredlefthand"
 echo -e "\e[1;36m💬 Grup Telegram: https://t.me/airdropredlefthanddisscusion"
 
 # Mengembalikan warna font ke normal
 echo -e "\e[0m"
 
-# Menambahkan kata-kata keren setelah proses selesai
+# Menambahkan kata-kata keren setelah menampilkan link Telegram
 echo -e "\e[1;32m💪 You've been waiting, now the adventure begins! 🚀"
 echo -e "\e[1;33m🔥 Let's make things happen, together! 🌟"
 
