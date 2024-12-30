@@ -102,9 +102,6 @@ echo -e "\e[1;36m💬 Grup Telegram: https://t.me/airdropredlefthanddisscusion"
 # Mengembalikan warna font ke normal
 echo -e "\e[0m"
 
-# Garis kosong agar lebih rapi
-echo -e "\n"
-
 # Menambahkan kata-kata keren setelah proses selesai
 echo -e "\e[1;32m💪 You've been waiting, now the adventure begins! 🚀"
 echo -e "\e[1;33m🔥 Let's make things happen, together! 🌟"
