@@ -46,7 +46,7 @@ clear
 
 # Menampilkan ASCII art dengan warna merah
 echo -e "\e[1;31m"  # Mengatur warna merah untuk ASCII art
-cat << "EOF"
+ASCII_ART=$(cat << "EOF"
         /$$$$$$  /$$$$$$ /$$$$$$$  /$$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$$   
        /$$__  $$|_  $$_/| $$__  $$| $$__  $$| $$__  $$ /$$__  $$| $$__  $$  
       | $$  \ $$  | $$  | $$  \ $$| $$  \ $$| $$  \ $$| $$  \ $$| $$  \ $$  
@@ -66,29 +66,30 @@ cat << "EOF"
 | $$  | $$| $$$$$$$$| $$$$$$$/      | $$  | $$| $$  | $$| $$ \  $$| $$$$$$$/ 
 |__/  |__/|________/|_______/       |__/  |__/|__/  |__/|__/  \__/|_______/ 
 EOF
-echo -e "\e[0m"  # Mengembalikan warna ke normal setelah ASCII art
+)
 
-# Menambahkan teks ajakan di tengah logo dengan penyesuaian warna
-text1="✨ Welcome to Airdrop Red Hand! ✨"
-text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
+echo -e "$ASCII_ART"
 
-# Menampilkan teks ajakan dengan warna putih
-echo -e "\e[1;37m"  # Mengatur warna teks menjadi putih
+# Menghitung jumlah baris dari ASCII art
+ascii_art_lines=$(echo -e "$ASCII_ART" | wc -l)
 
-# Pusatkan dan tampilkan teks ajakan
-# Hitung jumlah baris pada ASCII art
-ascii_art_lines=15  # Jumlah baris ASCII art
-half_terminal_height=$(( $(tput lines) / 2 ))  # Menghitung setengah tinggi terminal
+# Menghitung setengah tinggi terminal
+half_terminal_height=$(( $(tput lines) / 2 ))
 
-# Mengurangi jarak dengan menyesuaikan perhitungan offset
-center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 30))  # Mengurangi 30 untuk mendekatkan lebih dekat
+# Menghitung offset untuk menempatkan teks lebih dekat ke tengah
+center_offset=$((half_terminal_height - (ascii_art_lines / 2)))
 
 # Menambahkan baris kosong hingga mencapai posisi tengah ASCII art
 for ((i = 0; i < center_offset; i++)); do
   echo -e ""
 done
 
-# Tampilkan teks ajakan dengan pemusatan
+# Menampilkan teks ajakan
+text1="✨ Welcome to Airdrop Red Hand! ✨"
+text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
+
+# Menampilkan teks ajakan dengan warna putih
+echo -e "\e[1;37m"  # Mengatur warna teks menjadi putih
 center_text "$text1"
 center_text "$text2"
 
