@@ -73,22 +73,23 @@ echo -e "$ASCII_ART"
 # Menghitung jumlah baris dari ASCII art
 ascii_art_lines=$(echo -e "$ASCII_ART" | wc -l)
 
-# Menghitung setengah tinggi terminal
-half_terminal_height=$(( $(tput lines) / 2 ))
+# Menghitung setengah tinggi ASCII art
+half_ascii_art_height=$((ascii_art_lines / 2))
 
-# Menghitung offset untuk menempatkan teks lebih dekat ke tengah
-center_offset=$((half_terminal_height - (ascii_art_lines / 2)))
+# Menghitung posisi tengah untuk teks ajakan dalam ASCII art
+# Hitung posisi tengah dan pastikan teks ajakan berada di sana
+text1="✨ Welcome to Airdrop Red Hand! ✨"
+text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
+
+# Menghitung posisi untuk memusatkan teks ajakan di tengah ASCII art
+center_offset=$((half_ascii_art_height - 1))  # Sesuaikan offset sesuai keinginan
 
 # Menambahkan baris kosong hingga mencapai posisi tengah ASCII art
 for ((i = 0; i < center_offset; i++)); do
   echo -e ""
 done
 
-# Menampilkan teks ajakan
-text1="✨ Welcome to Airdrop Red Hand! ✨"
-text2="👨‍💻 Join the movement and level up with us on Telegram! 🚀"
-
-# Menampilkan teks ajakan dengan warna putih
+# Menampilkan teks ajakan di tengah-tengah ASCII art
 echo -e "\e[1;37m"  # Mengatur warna teks menjadi putih
 center_text "$text1"
 center_text "$text2"
