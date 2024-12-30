@@ -56,8 +56,7 @@ cat << "EOF"
       | $$  | $$ /$$$$$$| $$  | $$| $$$$$$$/| $$  | $$|  $$$$$$/| $$        
       |__/  |__/|______/|__/  |__/|_______/ |__/  |__/ \______/ |__/        
                                                                              
-                                                                             
-                                                                             
+
  /$$$$$$$  /$$$$$$$$ /$$$$$$$        /$$   /$$  /$$$$$$  /$$   /$$ /$$$$$$$ 
 | $$__  $$| $$_____/| $$__  $$      | $$  | $$ /$$__  $$| $$$ | $$| $$__  $$
 | $$  \ $$| $$      | $$  \ $$      | $$  | $$| $$  \ $$| $$$$| $$| $$  \ $$
@@ -66,7 +65,6 @@ cat << "EOF"
 | $$  \ $$| $$      | $$  | $$      | $$  | $$| $$  | $$| $$\  $$$| $$  | $$ 
 | $$  | $$| $$$$$$$$| $$$$$$$/      | $$  | $$| $$  | $$| $$ \  $$| $$$$$$$/ 
 |__/  |__/|________/|_______/       |__/  |__/|__/  |__/|__/  \__/|_______/ 
-                                                                         
 EOF
 echo -e "\e[0m"  # Mengembalikan warna ke normal setelah ASCII art
 
@@ -83,8 +81,8 @@ ascii_art_lines=15  # Jumlah baris ASCII art
 half_terminal_height=$(( $(tput lines) / 2 ))  # Menghitung setengah tinggi terminal
 
 # Menampilkan teks di tengah-tengah antara ASCII art
-# Menambahkan baris kosong untuk menyesuaikan posisi teks
-center_offset=$((half_terminal_height - ascii_art_lines / 2))
+# Mengurangi jarak dengan menyesuaikan perhitungan offset
+center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 1))  # Kurangi 1 untuk mendekatkan
 
 # Menambahkan baris kosong hingga mencapai posisi tengah ASCII art
 for ((i = 0; i < center_offset; i++)); do
@@ -102,18 +100,16 @@ echo -e "\e[0m"
 echo -e "\e[1;36m🌍 Channel Telegram: https://t.me/airdropredlefthand"
 echo -e "\e[1;36m💬 Grup Telegram: https://t.me/airdropredlefthanddisscusion"
 
+# Menambahkan kata-kata keren setelah proses selesai
+echo -e "\e[1;32m💪 You've been waiting, now the adventure begins! 🚀"
+echo -e "\e[1;33m🔥 Let's make things happen, together! 🌟"
+
 # Mengembalikan warna font ke normal
 echo -e "\e[0m"
 
 # Garis kosong agar lebih rapi
 echo -e "\n"
 
-# Menambahkan kata-kata keren setelah proses selesai
-echo -e "\e[1;32m💪 You've been waiting, now the adventure begins! 🚀"
-echo -e "\e[1;33m🔥 Let's make things happen, together! 🌟"
-
 # Menambahkan delay 3 detik sebelum melanjutkan proses selanjutnya
 sleep 3  # Tunggu selama 3 detik
 
-# Proses selanjutnya 
-echo -e "🚀 Wis rampung prosesne! Saiki wayahe maju terus, gasken!"
