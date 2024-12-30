@@ -82,7 +82,7 @@ half_terminal_height=$(( $(tput lines) / 2 ))  # Menghitung setengah tinggi term
 
 # Menampilkan teks di tengah-tengah antara ASCII art
 # Mengurangi jarak dengan menyesuaikan perhitungan offset
-center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 1))  # Kurangi 1 untuk mendekatkan
+center_offset=$((half_terminal_height - (ascii_art_lines / 2) - 3))  # Kurangi 3 untuk mendekatkan
 
 # Menambahkan baris kosong hingga mencapai posisi tengah ASCII art
 for ((i = 0; i < center_offset; i++)); do
@@ -99,6 +99,12 @@ echo -e "\e[0m"
 # Tautan Telegram Channel dan Group dengan warna cyan
 echo -e "\e[1;36m🌍 Channel Telegram: https://t.me/airdropredlefthand"
 echo -e "\e[1;36m💬 Grup Telegram: https://t.me/airdropredlefthanddisscusion"
+
+# Mengembalikan warna font ke normal
+echo -e "\e[0m"
+
+# Garis kosong agar lebih rapi
+echo -e "\n"
 
 # Menambahkan kata-kata keren setelah proses selesai
 echo -e "\e[1;32m💪 You've been waiting, now the adventure begins! 🚀"
