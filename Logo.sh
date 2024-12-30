@@ -15,8 +15,34 @@ center_text() {
   echo -e "$text"
 }
 
+# Fungsi untuk animasi loader jam
+function loading() {
+  local spin=('🕛' '🕜' '🕝' '🕞' '🕝' '🕜')  # Representasi jam yang berputar
+  local i=0
+  while true
+  do
+    # Menampilkan animasi jam
+    printf "\rLoading... ${spin[$i]}"
+    ((i=(i+1)%6))  # Mengubah posisi jam
+    sleep 0.5  # Kecepatan animasi
+  done
+}
+
 # Memperoleh lebar terminal sebelum menampilkan apa pun
 get_terminal_width
+
+# Jalankan loader di background
+loading &
+loader_pid=$!  # Ambil PID dari proses loader
+
+# Simulasi tugas lain (misalnya, pemrosesan atau menunggu beberapa detik)
+sleep 5  # Simulasi pemrosesan selama 5 detik
+
+# Hentikan proses loader setelah tugas selesai
+kill $loader_pid
+
+# Membersihkan layar untuk logo dan teks ajakan
+clear
 
 # Menampilkan ASCII art dengan warna merah
 echo -e "\e[1;31m"  # Mengatur warna merah untuk ASCII art
@@ -29,18 +55,18 @@ cat << "EOF"
       | $$  | $$  | $$  | $$  \ $$| $$  | $$| $$  \ $$| $$  | $$| $$        
       | $$  | $$ /$$$$$$| $$  | $$| $$$$$$$/| $$  | $$|  $$$$$$/| $$        
       |__/  |__/|______/|__/  |__/|_______/ |__/  |__/ \______/ |__/        
-                                                                            
-                                                                            
-                                                                            
+                                                                             
+                                                                             
+                                                                             
  /$$$$$$$  /$$$$$$$$ /$$$$$$$        /$$   /$$  /$$$$$$  /$$   /$$ /$$$$$$$ 
 | $$__  $$| $$_____/| $$__  $$      | $$  | $$ /$$__  $$| $$$ | $$| $$__  $$
 | $$  \ $$| $$      | $$  \ $$      | $$  | $$| $$  \ $$| $$$$| $$| $$  \ $$
 | $$$$$$$/| $$$$$   | $$  | $$      | $$$$$$$$| $$$$$$$$| $$ $$ $$| $$  | $$
-| $$__  $$| $$__/   | $$  | $$      | $$__  $$| $$__  $$| $$  $$$$| $$  | $$
-| $$  \ $$| $$      | $$  | $$      | $$  | $$| $$  | $$| $$\  $$$| $$  | $$
-| $$  | $$| $$$$$$$$| $$$$$$$/      | $$  | $$| $$  | $$| $$ \  $$| $$$$$$$/
+| $$__  $$| $$__/   | $$  | $$      | $$__  $$| $$__  $$| $$  $$$$| $$  | $$ 
+| $$  \ $$| $$      | $$  | $$      | $$  | $$| $$  | $$| $$\  $$$| $$  | $$ 
+| $$  | $$| $$$$$$$$| $$$$$$$/      | $$  | $$| $$  | $$| $$ \  $$| $$$$$$$/ 
 |__/  |__/|________/|_______/       |__/  |__/|__/  |__/|__/  \__/|_______/ 
-                                                                          
+                                                                         
 EOF
 echo -e "\e[0m"  # Mengembalikan warna ke normal setelah ASCII art
 
@@ -81,3 +107,13 @@ echo -e "\e[0m"
 
 # Garis kosong agar lebih rapi
 echo -e "\n"
+
+# Menambahkan kata-kata keren setelah proses selesai
+echo -e "\e[1;32m💪 You've been waiting, now the adventure begins! 🚀"
+echo -e "\e[1;33m🔥 Let's make things happen, together! 🌟"
+
+# Menambahkan delay 3 detik sebelum melanjutkan proses selanjutnya
+sleep 3  # Tunggu selama 3 detik
+
+# Proses selanjutnya 
+echo -e "🚀 Wis rampung prosesne! Saiki wayahe maju terus, gasken!"
